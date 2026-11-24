@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>認識負責任博彩。守護每一分精彩</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body { height: 100%; }
+	
+	
+	@media (max-height: 800px) {
+  body {
+    justify-content: flex-start; 
+    padding-top: 20px;           
+  }
+  .banner {
+    margin-top: 0;               
+    margin-bottom: 15px;
+  }
+  .main-card {
+    padding: 20px 18px;         
+  }
+  .footer {
+    margin-top: 15px;
+    margin-bottom: 30px;    
+    padding: 10px 16px;
+  }
+}
+	
+
+    body {
+      font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif;
+      min-height: 100vh;
+      min-height: 100dvh;               
+      background: url('sheep-bg.png') no-repeat center center fixed;
+      background-size: cover;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      justify-content: safe center;     
+      padding: clamp(20px, 6vh, 90px) 20px 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .banner {
+      width: 100%;
+      max-width: 900px;
+      margin: clamp(20px, 5vh, 60px) auto clamp(12px, 2.5vh, 30px);
+      flex-shrink: 0;
+    }
+    .banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    /* ===== 標題區 ===== */
+    .header {
+      text-align: center;
+      margin-bottom: clamp(10px, 2.5vh, 30px);
+      z-index: 10;
+      flex-shrink: 0;
+    }
+
+    .slogan {
+      font-size: clamp(1.1rem, 1.2rem + 1.6vw, 1.85rem);
+      font-weight: bold;
+      color: #FFD700;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.7), 0 0 20px rgba(255,215,0,0.3);
+      letter-spacing: 2px;
+      line-height: 1.55;
+      margin-top: clamp(8px, 1.5vh, 24px);
+    }
+
+    .year-tag {
+      display: inline-block;
+      background: linear-gradient(90deg, #FFD700, #FFA500);
+      color: #8B0000;
+      font-weight: bold;
+      padding: 7px 22px;
+      border-radius: 50px;
+      font-size: clamp(0.85rem, 0.9rem + 0.2vw, 1rem);
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }                                  
+
+    /* ===== 底部標語 ===== */
+    .footer {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+  padding: clamp(16px, 3vh, 32px) 16px;
+  margin-top: clamp(20px, 4vh, 48px);
+  /* ★ 將最小值改為 20px，中間值改為 8vh */
+  margin-bottom: clamp(20px, 8vh, 160px);   
+  flex-shrink: 0;
+    }
+
+    .slogan2 {
+      font-size: clamp(1.6rem, 1rem + 3.6vw, 3.4rem);  
+      font-weight: bold;
+      color: #FFFFFF;                                   
+      text-shadow: 0 3px 12px rgba(0,0,0,0.75), 0 0 24px rgba(255,215,0,0.35);
+      letter-spacing: 3px;
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    /* ===== 主要抽獎卡 ===== */
+    .main-card {
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 24px;
+      padding: clamp(24px, 4vh, 40px) 30px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      text-align: center;
+      position: relative;
+      z-index: 10;
+      border: 4px solid #FFD700;
+      flex-shrink: 0;
+    }
+
+    .main-card::before {
+      
+      position: absolute;
+      top: -26px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #8B0000;
+      font-size: 1.7rem;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.35);
+      border: 3px solid #fff;
+    }
+
+    .draw-btn {
+      background: linear-gradient(135deg, #C41E3A, #8B0000);
+      color: #FFD700;
+      border: none;
+      padding: clamp(14px, 2vh, 18px) clamp(40px, 8vw, 60px);
+      font-size: clamp(1.2rem, 1rem + 1vw, 1.5rem);
+      font-weight: bold;
+      border-radius: 60px;
+      cursor: pointer;
+      letter-spacing: 4px;
+      box-shadow: 0 8px 0 #5c0000, 0 12px 25px rgba(0,0,0,0.35);
+      transition: all 0.15s;
+      margin: clamp(10px, 2vh, 20px) 0 10px;
+      font-family: inherit;
+      flex-shrink: 0;
+    }
+
+    .draw-btn:hover  { transform: translateY(-2px); box-shadow: 0 10px 0 #5c0000, 0 15px 28px rgba(0,0,0,0.4); }
+    .draw-btn:active { transform: translateY(4px);  box-shadow: 0 4px 0 #5c0000, 0 6px 15px rgba(0,0,0,0.3); }
+    .draw-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .remaining {
+      color: #8B0000;
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+      font-weight: bold;
+    }
+
+    /* ===== 結果顯示區 ===== */
+    .result-area {
+      min-height: clamp(60px, 10vh, 90px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: clamp(8px, 1.5vh, 15px) 0 clamp(12px, 2vh, 25px);
+    }
+
+    .result-box {
+      background: linear-gradient(135deg, #FFF8DC, #FFFACD);
+      border: 3px solid #FFD700;
+      border-radius: 16px;
+      padding: 20px 30px;
+      width: 100%;
+      animation: popIn 0.4s ease;
+    }
+
+    .result-label { color: #C41E3A; font-size: 0.95rem; margin-bottom: 6px; }
+    .result-prize { font-size: 1.7rem; font-weight: bold; color: #8B0000; word-break: break-word; }
+
+    @keyframes popIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: clamp(12px, 2vh, 22px);
+      margin-bottom: clamp(8px, 2vh, 20px);
+    }
+
+    .action-btn {
+      background: #fff;
+      border: 2px solid #C41E3A;
+      color: #C41E3A;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .action-btn:hover { background: #C41E3A; color: #FFD700; }
+
+    /* ===== 歷史紀錄 ===== */
+    .history-card {
+      display: none !important;
+      background: rgba(255,255,255,0.94);
+      border-radius: 18px;
+      padding: 20px;
+      width: 100%;
+      max-width: 480px;
+      margin-top: 30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      border: 2px solid #FFD700;
+      z-index: 10;
+      flex-shrink: 0;-
+    }
+    .history-card h3 { color: #8B0000; font-size: 1.15rem; margin-bottom: 12px; text-align: center; }
+    .history-list { max-height: 200px; overflow-y: auto; }
+    .history-item {
+      display: flex; justify-content: space-between;
+      padding: 10px 0; border-bottom: 1px solid #f0e0c0; font-size: 0.95rem;
+    }
+    .history-item:last-child { border-bottom: none; }
+    .history-prize { color: #8B0000; font-weight: bold; }
+    .history-time  { color: #999; font-size: 0.85rem; }
+    .empty-tip     { text-align: center; color: #aaa; padding: 25px 0; }
+
+    /* ===== 設定面板 ===== */
+    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: none; z-index: 100; }
+    .overlay.show { display: block; }
+
+    .settings-panel {
+      position: fixed; top: 0; right: -420px;
+      width: 400px; max-width: 95vw; height: 100%;
+      background: #fff; box-shadow: -8px 0 30px rgba(0,0,0,0.3);
+      transition: right 0.3s ease; z-index: 110;
+      padding: 30px 25px; overflow-y: auto;
+    }
+    .settings-panel.open { right: 0; }
+    .settings-panel h3 { color: #8B0000; margin-bottom: 18px; font-size: 1.3rem; }
+    .settings-panel label { display: block; margin: 14px 0 6px; color: #555; font-size: 0.9rem; }
+    .settings-panel textarea {
+      width: 100%; height: 200px; padding: 12px;
+      border: 2px solid #FFD700; border-radius: 12px;
+      font-size: 0.95rem; font-family: inherit; resize: vertical;
+    }
+    .settings-panel input[type="checkbox"] { margin-right: 6px; }
+    .settings-actions { display: flex; gap: 12px; margin-top: 25px; }
+    .settings-actions button {
+      flex: 1; padding: 12px; border: none; border-radius: 10px;
+      font-size: 1rem; font-weight: bold; cursor: pointer; font-family: inherit;
+    }
+    .btn-save  { background: #C41E3A; color: #FFD700; }
+    .btn-close { background: #eee; color: #555; }
+
+    /* ===== 小螢幕微調 ===== */
+    @media (max-width: 500px) {
+      .slogan  { margin-top: clamp(0px, 6vh, 80px); }
+      .main-card { padding: 26px 18px; }
+      .slogan2 { letter-spacing: 2px; }
+    }
+
+    @media (max-height: 520px) {
+      body { justify-content: flex-start; }
+      .slogan { margin-top: 0; }
+      .footer { margin-bottom: clamp(16px, 4vh, 40px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ★ 橫幅移到 body 內 -->
+  <div class="banner">
+    <img src="banner.png" alt="活動橫幅">
+  </div>
+
+  <div class="header">
+    <div class="slogan">認識負責任博彩。守護每一分精彩</div>
+    <div class="year-tag">2027 羊年 · 銀娛RG推廣</div>
+  </div>
+
+  <div class="main-card">
+    <div class="remaining" id="remaining">剩餘獎項：0</div>
+    <div class="result-area" id="resultArea"></div>
+    <button class="draw-btn" id="drawBtn" onclick="drawPrize()">抽 獎</button>
+  </div>
+
+  <div class="actions">
+    <button class="action-btn" onclick="openSettings()">設定獎項</button>
+    <button class="action-btn" onclick="resetAll()">重置</button>
+  </div>
+
+  <div class="history-card" id="historyCard">
+    <h3>抽獎紀錄</h3>
+    <div class="history-list" id="historyList">
+      <div class="empty-tip">尚未開始抽獎</div>
+    </div>
+  </div>
+
+  
+  <div class="footer">
+    <div class="slogan2">認識負責任博彩。守護每一分精彩</div>
+  </div>
+
+  <div class="overlay" id="overlay" onclick="closeSettings()"></div>
+
+  <div class="settings-panel" id="settingsPanel">
+    <h3>設定獎項</h3>
+    <label>獎項內容（每行一個，或使用「名稱 * 數量」格式）</label>
+    <textarea id="prizesInput">一等獎 * 1
+二等獎 * 3
+三等獎 * 5
+精美禮品 * 10
+謝謝參與 * 15</textarea>
+
+    <label style="margin-top: 18px;">
+      <input type="checkbox" id="removeOnDraw" checked>
+      抽出後從獎池移除（不重複中獎）
+    </label>
+
+    <div class="settings-actions">
+      <button class="btn-save" onclick="saveSettings()">儲存設定</button>
+      <button class="btn-close" onclick="closeSettings()">關閉</button>
+    </div>
+  </div>
+
+  <script>
+    let prizes = [];
+    let history = [];
+    let removeOnDraw = true;
+
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    function init() {
+      loadSettings();
+      updateRemaining();
+      renderHistory();
+    }
+
+    function parsePrizes(text) {
+      const lines = text.trim().split('\n').filter(l => l.trim());
+      const result = [];
+      lines.forEach(line => {
+        const match = line.match(/^(.+?)\s*\*\s*(\d+)$/);
+        if (match) {
+          const name = match[1].trim();
+          const count = parseInt(match[2], 10);
+          for (let i = 0; i < count; i++) result.push(name);
+        } else {
+          result.push(line.trim());
+        }
+      });
+      return result;
+    }
+
+    function drawPrize() {
+      if (prizes.length === 0) {
+        alert('獎項已抽完！請點「設定獎項」重新加入，或按「重置」。');
+        return;
+      }
+
+      const btn = document.getElementById('drawBtn');
+      btn.disabled = true;
+      btn.textContent = '抽獎中...';
+
+      setTimeout(() => {
+        const index = Math.floor(Math.random() * prizes.length);
+        const prize = prizes[index];
+
+        showResult(prize);
+
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString('zh-TW', {
+          hour: '2-digit', minute: '2-digit', second: '2-digit'
+        });
+        history.unshift({ prize, time: timeStr });
+        renderHistory();
+
+        if (removeOnDraw) {
+          prizes.splice(index, 1);
+        }
+
+        updateRemaining();
+        btn.disabled = false;
+        btn.textContent = '抽 獎';
+      }, 600);
+    }
+
+    function showResult(prize) {
+      document.getElementById('resultArea').innerHTML = `
+        <div class="result-box">
+          <div class="result-label">恭喜獲得</div>
+          <div class="result-prize">${escapeHtml(prize)}</div>
+        </div>
+      `;
+    }
+
+    function updateRemaining() {
+      document.getElementById('remaining').textContent = `剩餘獎項：${prizes.length}`;
+    }
+
+    function renderHistory() {
+      const card = document.getElementById('historyCard');
+      const list = document.getElementById('historyList');
+
+      // ★ 有紀錄才顯示歷史卡片
+      card.style.display = history.length ? 'block' : 'none';
+
+      if (history.length === 0) {
+        list.innerHTML = '<div class="empty-tip">尚未開始抽獎</div>';
+        return;
+      }
+      list.innerHTML = history.map(item => `
+        <div class="history-item">
+          <span class="history-prize">${escapeHtml(item.prize)}</span>
+          <span class="history-time">${escapeHtml(item.time)}</span>
+        </div>
+      `).join('');
+    }
+
+    function openSettings() {
+      document.getElementById('settingsPanel').classList.add('open');
+      document.getElementById('overlay').classList.add('show');
+    }
+
+    function closeSettings() {
+      document.getElementById('settingsPanel').classList.remove('open');
+      document.getElementById('overlay').classList.remove('show');
+    }
+
+    function saveSettings() {
+      const text = document.getElementById('prizesInput').value;
+      removeOnDraw = document.getElementById('removeOnDraw').checked;
+      prizes = parsePrizes(text);
+
+      localStorage.setItem('draw_prizes', text);
+      localStorage.setItem('draw_remove', removeOnDraw);
+
+      document.getElementById('resultArea').innerHTML = '';
+      history = [];
+      renderHistory();
+      updateRemaining();
+      closeSettings();
+    }
+
+    function loadSettings() {
+      const text = localStorage.getItem('draw_prizes') || document.getElementById('prizesInput').value;
+      removeOnDraw = localStorage.getItem('draw_remove') !== 'false';
+
+      document.getElementById('prizesInput').value = text;
+      document.getElementById('removeOnDraw').checked = removeOnDraw;
+      prizes = parsePrizes(text);
+    }
+
+    function resetAll() {
+      if (confirm('確定要重置嗎？會重新載入獎項並清空抽獎紀錄。')) {
+        loadSettings();
+        document.getElementById('resultArea').innerHTML = '';
+        history = [];
+        renderHistory();
+        updateRemaining();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        const btn = document.getElementById('drawBtn');
+        if (!btn.disabled) drawPrize();
+      }
+    });
+
+    init();
+  </script>
+</body>
+</html>
